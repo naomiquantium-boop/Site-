@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpyTON Listings</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero card">
+      <div>
+        <span class="eyebrow">Telegram Mini App</span>
+        <h1>SpyTON Listings</h1>
+        <p>List TON tokens, collect listing fees, and approve projects from one lightweight Cloudflare app.</p>
+      </div>
+      <button id="refreshBtn" class="secondary-btn">Refresh</button>
+    </header>
+
+    <section class="grid two-up">
+      <div class="card">
+        <div class="card-header">
+          <h2>Listing packages</h2>
+          <span class="pill">Paid in TON</span>
+        </div>
+        <div id="packages" class="stack"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Submit token</h2>
+          <span class="pill">MVP</span>
+        </div>
+        <form id="submitForm" class="stack">
+          <input name="token_name" placeholder="Token name" required />
+          <input name="symbol" placeholder="Symbol" required />
+          <input name="contract_address" placeholder="TON contract address" required />
+          <input name="logo_url" placeholder="Logo URL (optional)" />
+          <input name="website" placeholder="Website URL (optional)" />
+          <input name="telegram_link" placeholder="Telegram link (optional)" />
+          <input name="x_link" placeholder="X link (optional)" />
+          <input name="category" placeholder="Category e.g. Meme / AI / Utility" />
+          <textarea name="description" rows="4" placeholder="Short project description" required></textarea>
+          <select name="package_code" id="packageSelect" required></select>
+          <input name="tx_hash" placeholder="TX hash after payment (optional in MVP)" />
+          <button type="submit">Submit listing</button>
+        </form>
+        <div id="submitResult" class="notice hidden"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Live listings</h2>
+        <span class="pill">Public board</span>
+      </div>
+      <div id="liveListings" class="grid listing-grid"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Admin panel</h2>
+        <span class="pill">Password protected</span>
+      </div>
+      <div class="admin-login row">
+        <input id="adminPassword" type="password" placeholder="Admin password" />
+        <button id="adminLoginBtn">Load admin</button>
+      </div>
+      <div id="adminListings" class="stack"></div>
+    </section>
+  </div>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
